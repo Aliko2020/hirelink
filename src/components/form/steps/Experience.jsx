@@ -1,8 +1,8 @@
 import { Formik, Form } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { updateForm, nextStep, prevStep } from "../../../store/applicationSlice";
-import FormField from "../../FormFields/FormField";
-import { validateExperience } from "../../../validation/validateExperience";
+import FormField from "../inputs/FormField";
+import { validateExperience } from "../../../validation/Experience";
 
 const ExperienceSkills = () => {
   const dispatch = useDispatch();

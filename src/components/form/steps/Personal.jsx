@@ -1,9 +1,9 @@
 import { Formik, Form } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { updateForm, nextStep } from "../../../store/applicationSlice";
-import FormField from "../../FormFields/FormField";
-import { validatePersonalInfo } from "../../../validation/validationPersonal";
-import PhoneField from "../../FormFields/PhoneField";
+import FormField from "../inputs/FormField";
+import { validatePersonalInfo } from "../../../validation/Personal";
+import PhoneField from "../inputs/PhoneField";
 
 
 

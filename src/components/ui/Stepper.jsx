@@ -1,7 +1,6 @@
-
 const Stepper = ({ steps, currentStep, onStepClick }) => {
   return (
-    <div className="flex justify-between max-w-2xl mx-auto p-4">
+    <div className="flex justify-between border max-w-2xl mx-auto p-4">
       {steps.map((step, index) => {
         const isActive = index === currentStep;
         const isCompleted = index < currentStep;
@@ -19,7 +18,6 @@ const Stepper = ({ steps, currentStep, onStepClick }) => {
             aria-current={isActive ? "step" : undefined}
           >
             <div className="flex flex-col items-center">
-              {/* Circle */}
               <div
                 className={`
                   flex items-center justify-center
@@ -30,8 +28,8 @@ const Stepper = ({ steps, currentStep, onStepClick }) => {
                     isCompleted
                       ? "bg-blue-600 border-blue-600 text-white"
                       : isActive
-                      ? "border-blue-600 text-blue-600"
-                      : "border-gray-300 text-gray-400"
+                        ? "border-blue-600 text-blue-600"
+                        : "border-gray-300 text-gray-400"
                   }
                 `}
               >
@@ -55,7 +53,6 @@ const Stepper = ({ steps, currentStep, onStepClick }) => {
                 )}
               </div>
 
-              {/* Title */}
               <span
                 className={`
                   mt-2 text-sm text-center
@@ -63,8 +60,8 @@ const Stepper = ({ steps, currentStep, onStepClick }) => {
                     isCompleted
                       ? "text-blue-600"
                       : isActive
-                      ? "text-blue-600"
-                      : "text-gray-400"
+                        ? "text-blue-600"
+                        : "text-gray-400"
                   }
                 `}
               >
@@ -72,15 +69,12 @@ const Stepper = ({ steps, currentStep, onStepClick }) => {
               </span>
             </div>
 
-            {/* Divider */}
             {index !== steps.length - 1 && (
               <div
                 className={`
                   absolute top-5 left-full w-full h-0.5
                   bg-gray-300
-                  ${
-                    isCompleted ? "bg-blue-600" : "bg-gray-300"
-                  }
+                  ${isCompleted ? "bg-blue-600" : "bg-gray-300"}
                   translate-x-1/2
                 `}
                 style={{ width: "calc(100% - 40px)" }}

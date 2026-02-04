@@ -1,6 +1,6 @@
-import PersonalInfo from "./PersonalInfo";
-import ExperienceSkills from "./ExperienceSkills";
-import ResumeUpload from "./ResumeUpload";
+import PersonalInfo from "./Personal";
+import ExperienceSkills from "./Experience";
+import ResumeUpload from "./Resume";
 
 export const steps = [
   { title: "Personal Info", component: <PersonalInfo /> },

@@ -1,31 +1,40 @@
-import { Formik, Form, useField } from "formik";
+import { Formik, Form } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import { updateForm, prevStep } from "../../../store/applicationSlice";
+import { updateForm } from "../../../store/applicationSlice";
+import { addCandidate } from "../../../store/candidatesSlice";
+import { prevStep } from "../../../store/applicationSlice";
 import { useNavigate } from "react-router-dom";
-import validateResume from "../../../validation/validateResume";
-import { toast } from "react-toastify";
-import FileField from "../../FormFields/FileField";
-
+import validateResume from "../../../validation/Resume";
+import FileField from "../inputs/FileField";
 
 const ResumeUpload = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { resume } = useSelector((state) => state.application);
+  const application = useSelector((state) => state.application);
 
   return (
     <Formik
-      initialValues={{ resume }}
+      initialValues={{ resume: application.resume }}
       validate={validateResume}
       onSubmit={(values, actions) => {
+  
         dispatch(updateForm(values));
 
-        toast.success("Submitted successfully!");
+        const candidate = {
+          ...application,
+          ...values,
+          id: crypto.randomUUID(), 
+          stage: "Applied",       
+          notes: "",
+          interview: null,
+          offer: null,
+        };
+        dispatch(addCandidate(candidate));
 
         actions.resetForm();
-
         setTimeout(() => {
-          navigate("/");
-        }, 1000);
+          navigate("/apply/success");
+        }, 500);
       }}
     >
       <Form className="mx-auto p-4 px-8">

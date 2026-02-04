@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   jobId: null,
-  jobTitle: "", 
+  jobTitle: "",
   jobDescription: "",
   fullName: "",
   email: "",

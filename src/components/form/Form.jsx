@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { nextStep, prevStep } from "../../store/applicationSlice";
 import { steps } from "./steps/steps";
 import Stepper from "../ui/Stepper";
-import Hero from "../Hero";
+import Hero from "../ui/Hero";
 
 export default function MultiStepForm() {
   const dispatch = useDispatch();
