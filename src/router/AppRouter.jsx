@@ -4,8 +4,7 @@ import Layout from "../components/layout/Layout";
 import AdminLayout from "../components/layout/AdminLayout";
 
 import Jobs from "../pages/public/Jobs";
-import Apply from "../pages/public/Apply";
-import ThankYou from "../pages/public/ThankYou";
+import MultiStepForm from "../components/MultiStepForm/MultiStepForm"
 import NotFound from "../pages/public/NotFound";
 
 import Adminboard from "../pages/admin/Adminboard";
@@ -15,11 +14,9 @@ export default function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
-
         <Route element={<Layout />}>
           <Route path="/" element={<Jobs />} />
-          <Route path="/apply/:jobId" element={<Apply />} />
-          <Route path="/thank-you/:applicationId" element={<ThankYou />} />
+          <Route path="/apply/:jobId" element={<MultiStepForm />} />
         </Route>
 
         <Route element={<AdminLayout />}>
@@ -31,7 +28,6 @@ export default function AppRouter() {
         </Route>
 
         <Route path="*" element={<NotFound />} />
-
       </Routes>
     </BrowserRouter>
   );

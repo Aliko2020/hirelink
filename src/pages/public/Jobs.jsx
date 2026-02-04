@@ -1,5 +1,5 @@
 import Hero from "../../components/Hero";
-import JobCard from "../../components/Jobcard";
+import JobCard from "../../components/ui/Jobcard";
 import { jobs } from "../../data/jobs";
 
 const Jobs = () => {
@@ -11,7 +11,7 @@ const Jobs = () => {
       />
 
       <div className="max-w-5xl mx-auto space-y-6 px-6 py-6">
-        <h2 className="font-semibold text-lg text-[#0f2385]">
+        <h2 className="font-semibold text-lg">
           Open positions ({jobs.length})
         </h2>
 
