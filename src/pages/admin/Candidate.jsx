@@ -1,34 +1,36 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import CandidateCard from "./CandidateCard";
-import { moveStage } from "../../store/candidatesSlice"; 
+import { moveStage } from "../../store/candidatesSlice";
 
 export default function Candidate() {
   const { applicationId } = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const candidates = useSelector(
-    (state) => state.candidates.candidates
-  );
+  const candidates = useSelector((state) => state.candidates.candidates);
 
   const candidate = candidates.find((c) => c.id === applicationId);
 
   if (!candidate) {
     return (
-      <div className="p-4 text-sm text-gray-600">
-        Candidate not found.
-      </div>
+      <div className="p-4 text-sm text-gray-600">Candidate not found.</div>
     );
   }
 
   const handleMarkReviewed = () => {
-    dispatch(
-      moveStage({ id: candidate.id, stage: "Reviewed" })
-    );
+    dispatch(moveStage({ id: candidate.id, stage: "Reviewed" }));
   };
 
   return (
     <div className="p-4 space-y-4">
+      <button
+        onClick={() => navigate("/adminboard")}
+        className="text-sm text-blue-600 hover:underline"
+      >
+        ← Back to Admin Board
+      </button>
+
       <CandidateCard candidate={candidate} />
 
       {candidate.stage !== "Reviewed" && (
@@ -41,9 +43,7 @@ export default function Candidate() {
       )}
 
       {candidate.stage === "Reviewed" && (
-        <span className="text-sm text-green-600 font-medium">
-          Candidate already reviewed
-        </span>
+        <span className="text-sm text-green-600 font-medium">Reviewed</span>
       )}
     </div>
   );
