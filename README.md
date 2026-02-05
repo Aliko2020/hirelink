@@ -83,3 +83,31 @@ Steps:
 - **Routing:** React Router v6 with nested admin routes under `/adminboard`
 - **Persistence:** localStorage for frontend-only data storage
 
+
+## Trade-offs & Limitations
+
+This project was intentionally built as a frontend-only application to align with the assessment scope and time constraints.
+
+### No Backend / Authentication
+All data is stored in `localStorage`. There is no real authentication or role enforcement; recruiter access is simulated via routing.
+
+### Partial Recruiter Features
+The core pipeline structure and state transitions are implemented.  
+Advanced recruiter actions (interview scheduling logic, scoring, and offer drafting) are documented as future improvements.
+
+### Mock Data Usage
+Job listings and candidate data use mock data to focus on UI logic and state management rather than backend integration.
+
+### Validation Scope
+Client-side validation is implemented for required fields, email format, and file type.  
+Server-side validation is out of scope.
+
+---
+
+## Future Improvements
+
+- Add backend API with persistent database storage
+- Implement authentication and role-based access control
+- Complete recruiter features (scoring, notes, interview scheduler, offer workflow)
+- Improve form accessibility and error feedback
+- Add unit and integration tests
